@@ -1,11 +1,14 @@
 /**
  * Create by chengkai on 2018/8/17.
  * Describe:
+ * 替换 antd-mobile 组件的样式
+ * https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui#antd-mobile-with-rn-custom-ui
  */
 
 import React from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
 import CommonWebView from "./CommonWebView";
+import Toast from './toast/index.native';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -21,7 +24,8 @@ export default class HomeScreen extends React.Component {
     if (url && url.toLowerCase().startsWith("http")) {
       this.props.navigation.push('CommonWebView', { url });
     } else {
-      this.showAlert('请输入正确的URL(包含http或https)');
+      Toast.show('请输入正确的URL(包含http或https)', 2, false);
+      // this.showAlert('请输入正确的URL(包含http或https)');
     }
   }
 

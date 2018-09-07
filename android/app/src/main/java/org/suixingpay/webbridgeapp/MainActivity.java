@@ -1,4 +1,4 @@
-package com.webbridgeapp;
+package org.suixingpay.webbridgeapp;
 
 import com.facebook.react.ReactActivity;
 
