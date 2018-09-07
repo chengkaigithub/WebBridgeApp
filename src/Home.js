@@ -6,7 +6,16 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
+} from "react-native";
 import CommonWebView from "./CommonWebView";
 import Toast from './toast/index.native';
 
@@ -20,6 +29,7 @@ export default class HomeScreen extends React.Component {
   }
 
   openNewWebView = () => {
+    Keyboard.dismiss();
     let url = this.state.url;
     if (url && url.toLowerCase().startsWith("http")) {
       this.props.navigation.push('CommonWebView', { url });
@@ -46,14 +56,17 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TextInput style={styles.inputStyle} onChangeText={this.onUrlChange}
-                   placeholder='please input url...'
-        />
-        <TouchableOpacity onPress={this.openNewWebView}>
-          <Text style={styles.btnStyle}>open new WebView</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <TextInput style={styles.inputStyle} onChangeText={this.onUrlChange}
+                     autoFocus={true} clearButtonMode={true} multiline={true}
+                     placeholder='please input url...'
+          />
+          <TouchableOpacity onPress={this.openNewWebView}>
+            <Text style={styles.btnStyle}>open new WebView</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -74,7 +87,7 @@ const styles = StyleSheet.create({
   inputStyle: {
     margin: 20,
     width: 200,
-    height: 30,
+    height: 100,
     backgroundColor: '#fff'
   }
 });
