@@ -54,6 +54,14 @@ export default class HomeScreen extends React.Component {
     this.setState({ url });
   }
 
+  testGitCommit = () => {
+    // 测试 功能分支2提交数据
+  }
+
+  branch2Func = () => {
+    // 功能分支2 自己的func
+  }
+
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
