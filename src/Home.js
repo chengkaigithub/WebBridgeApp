@@ -58,6 +58,10 @@ export default class HomeScreen extends React.Component {
     // 测试 功能分支1提交数据
   }
 
+  branch2Func = () => {
+    // 功能分支2 自己的func
+  }
+
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
