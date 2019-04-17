@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
   webViewStyle: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop: 50
   },
   errorViewText: {
     color: "#fff",
